@@ -5,17 +5,21 @@
  */
 package javafxtableexample;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  *
  * @author denis
  */
-class Person {
+public class Person {
+    
     private Integer id;
     private String firstname;
     private String lastname;
     private String gender;
+    private Set<Education> educations = new HashSet<>();
 
     public Person(Integer id, String firstname, String lastname, String gender) {
         this.id = id;
@@ -23,7 +27,19 @@ class Person {
         this.lastname = lastname;
         this.gender = gender;
     }
+    
+    public void addEducation(Education education){
+        educations.add(education);
+    }
 
+    public Set<Education> getEducations() {
+        return educations;
+    }
+
+    public void setEducations(Set<Education> educations) {
+        this.educations = educations;
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -38,6 +54,22 @@ class Person {
 
     public String getGender() {
         return gender;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     @Override
@@ -76,12 +108,11 @@ class Person {
         }
         return true;
     }
+    
+    
 
     @Override
     public String toString() {
         return "Person{" + "id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", gender=" + gender + '}';
     }
-
-    
-    
 }
